@@ -1,0 +1,27 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func Divide(a, b float64) (float64, error) {
+	if b == 0 && a == 0 {
+		return 0, errors.New("a and b can not be 0 simultaneously")
+	}
+	if b == 0 {
+		return 0, errors.New("can not divide by 0")
+	}
+
+	return a / b, nil
+}
+
+func main() {
+	result, err := Divide(0, 0)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(result)
+}
